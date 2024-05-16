@@ -10,14 +10,14 @@ import jakarta.validation.constraints.NotNull;
 public record PedidoDto(
 		Long id,
 		@NotBlank
-		String nomeCliente,
-		@NotBlank
+		String nome,
+		@NotNull
 		List<String> pratos,
 		@NotNull
 	    BigDecimal total
 		) {
 	
 	public Pedido toEntity() {
-        return new Pedido(this.id, this.nomeCliente, this.pratos, this.total);
+        return new Pedido(this.id, this.nome, this.pratos, this.total);
     }
 }
