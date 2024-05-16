@@ -19,7 +19,7 @@ public class PedidoService {
 	
 	public List<PedidoDto> obterTodos(){
 		return pedidoRepositorio.findAll().stream()
-				.map(c -> new PedidoDto(c.getId(), c.getNomeCliente(), c.getPratos(), 
+				.map(c -> new PedidoDto(c.getId(), c.getNome(), c.getPratos(), 
 						c.getTotal())).toList();
 	}
 	
@@ -59,7 +59,7 @@ public class PedidoService {
 	
 	public List<PedidoDto> obterPorNome(String nome) {
 		return pedidoRepositorio.findByNomeContainingIgnoreCase(nome).stream()
-				.map(c -> new PedidoDto(c.getId(), c.getNomeCliente(), c.getPratos(), 
+				.map(c -> new PedidoDto(c.getId(), c.getNome(), c.getPratos(), 
 						c.getTotal())).toList();
 	}
 }

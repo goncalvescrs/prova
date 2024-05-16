@@ -18,16 +18,16 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pedido")
 	private Long id;
-	private String nomeCliente;
+	private String nome;
 	private List<String> pratos;
     private BigDecimal total;
     
     public Pedido () {}
     
-	public Pedido(Long id, String nomeCliente, List<String> pratos, BigDecimal total) {
+	public Pedido(Long id, String nome, List<String> pratos, BigDecimal total) {
 		super();
 		this.id = id;
-		this.nomeCliente = nomeCliente;
+		this.nome = nome;
 		this.pratos = pratos;
 		this.total = total;
 	}
@@ -40,12 +40,12 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public List<String> getPratos() {
@@ -65,7 +65,7 @@ public class Pedido {
 	}
     
 	public PedidoDto toDTO(){
-        return new PedidoDto(this.id, this.nomeCliente, this.pratos, this.total);
+        return new PedidoDto(this.id, this.nome, this.pratos, this.total);
     }
 	
 }
